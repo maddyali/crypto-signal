@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 10%;
+  color: #ddd;
+  border-bottom: 2px solid #3c3c3c;
+}
+.navbar ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.navbar li {
+  cursor: pointer;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.navbar select {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 2px solid whitesmoke;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+.navbar button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+  background-color: whitesmoke;
+  cursor: pointer;
+}
