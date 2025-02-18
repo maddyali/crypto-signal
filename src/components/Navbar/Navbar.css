@@ -34,3 +34,25 @@
   background-color: whitesmoke;
   cursor: pointer;
 }
+
+@media (min-width: 375px) {
+  .navbar h1 {
+    font-size: 16px;
+  }
+  .navbar ul {
+    display: none;
+  }
+}
+@media (min-width: 675px) {
+  .navbar ul {
+    display: flex;
+  }
+  .navbar h1 {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 975px) {
+  .navbar h1 {
+    font-size: 2rem;
+  }
+}
