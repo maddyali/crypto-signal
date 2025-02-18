@@ -1,8 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import { CoinContext } from "../../context/CoinContext";
 const Home = () => {
   const { allCoin, currency } = useContext(CoinContext);
+  const [input, setInput] = useState("");
+  const [displayCoin, setDisplayCoin] = useState([]);
+
+  const inputHandler = (e) => {
+    setInput(e.target.value);
+  };
+
+  const searchHandler = async (e) => {
+    e.preventDefault();
+    const coin = await allCoin.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase());
+    });
+    setDisplayCoin(coin);
+  };
+
+  useEffect(() => {
+    setDisplayCoin(allCoin);
+  }, [allCoin]);
 
   return (
     <div>
@@ -14,8 +32,14 @@ const Home = () => {
             you filter signal from noise.
           </h2>
           <p>Sign up to stay on top of crypto.</p>
-          <form type="text">
-            <input type="text" placeholder="Search" />
+          <form type="text" onSubmit={searchHandler}>
+            <input
+              onChange={inputHandler}
+              value={input}
+              type="text"
+              placeholder="Search"
+              required
+            />
             <button type="submit">Search</button>
           </form>
         </div>
@@ -27,7 +51,7 @@ const Home = () => {
             <p className="hr-change-title">24HR Change</p>
             <p className="market-cap-title">Market Cap</p>
           </div>
-          {allCoin.slice(0, 10).map((item, index) => (
+          {displayCoin.slice(0, 10).map((item, index) => (
             <div className="item" key={index}>
               <p className="market-rank">{item.market_cap_rank}</p>
               <div className="coin">
