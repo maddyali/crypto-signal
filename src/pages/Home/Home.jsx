@@ -22,33 +22,41 @@ const Home = () => {
         <div className="table">
           <div className="table-layout">
             <p>#</p>
-            <p>Coins</p>
-            <p>Price</p>
-            <p style={{ textAlign: "center" }}>24HR Change</p>
-            <p className="market-cap">Market Cap</p>
+            <p className="coin-title">Coins</p>
+            <p className="price-title">Price</p>
+            <p className="hr-change-title">24HR Change</p>
+            <p className="market-cap-title">Market Cap</p>
           </div>
           {allCoin.slice(0, 10).map((item, index) => (
             <div className="item" key={index}>
               <p className="market-rank">{item.market_cap_rank}</p>
-              <div>
+              <div className="coin">
                 <img src={item.image} alt="" />
                 <p>{`${item.name} ${item.symbol.toUpperCase()}`}</p>
               </div>
 
-              <p className="current-price">
+              <p className="price">
                 {item.current_price.toLocaleString("en-US", {
                   style: "currency",
                   currency: `${currency.name}`,
                 })}
               </p>
-              <p className="hr-change">
+              <p
+                className={`hr-change ${
+                  item.price_change_percentage_24h > 0 ? "green" : "red"
+                }`}
+              >
                 {Math.floor(item.price_change_percentage_24h * 100) / 100}%
               </p>
               <p className="market-cap">
-                {item.market_cap.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: `${currency.name}`,
-                })}
+                {
+                  item.market_cap
+                    .toLocaleString("en-US", {
+                      style: "currency",
+                      currency: `${currency.name}`,
+                    })
+                    .split(".")[0]
+                }
               </p>
             </div>
           ))}

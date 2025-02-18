@@ -1,3 +1,7 @@
+.home {
+  flex: 1;
+  padding: 1rem;
+}
 .hero {
   max-width: 600px;
   margin: 5rem auto;
@@ -28,16 +32,6 @@
   font-size: 1rem;
   cursor: pointer;
 }
-
-/* background-image: linear-gradient(
-    to top,
-    #f0f0f0,
-    #b1b1b1,
-    #767676,
-    #404040,
-    #101010
-  ); */
-
 .table {
   max-width: 800px;
   margin: auto;
@@ -47,41 +41,108 @@
 }
 .table-layout {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 0.75fr 1fr 1.25fr;
+  grid-template-columns: 0.5fr 1.25fr 0.5fr;
   padding: 1rem 1.5rem;
   align-items: center;
   border-bottom: 1px solid #b1b1b1;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
+
+.market-cap,
+.market-cap-title,
+.hr-change,
+.hr-change-title {
+  display: none;
+}
+
 .item {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 3rem;
-  padding-left: 1.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding: 0.25rem 1.5rem 0.25rem 1.5rem;
   border-bottom: 1px solid #b1b1b1;
+}
+.item:last-child {
+  border-bottom: none;
 }
 .item div {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  flex-basis: 14.5rem;
-  margin-left: 0.5rem;
+  flex-basis: 14rem;
 }
-.item:last-child div {
-  margin-left: 0;
+
+.price {
+  flex-basis: 5rem;
+  text-align: right;
+}
+
+@media (min-width: 550px) {
+  .table-layout {
+    grid-template-columns: 0.5fr 1.5fr 1.25fr 0.5fr;
+  }
+  .hr-change,
+  .hr-change-title {
+    display: block;
+    text-align: right;
+    flex-grow: 1;
+  }
+
+  .price-title {
+    text-align: left;
+  }
+  .item .coin {
+    flex-basis: 10rem;
+  }
+}
+
+@media (min-width: 550px) {
+  .table-layout {
+    grid-template-columns: 0.5fr 1.5fr 1.25fr 0.5fr;
+  }
+}
+
+@media (min-width: 650px) {
+  .table-layout {
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
+  }
+  .market-cap,
+  .market-cap-title {
+    display: block;
+    margin-left: auto;
+  }
+  .hr-change-title {
+    text-align: center;
+  }
+  .item {
+    gap: 2rem;
+  }
+  .hr-change {
+    flex-basis: 5rem;
+  }
+}
+
+@media (min-width: 750px) {
+  .table-layout {
+    grid-template-columns: 0.25fr 1fr 0.75fr 1.25fr 0.5fr;
+  }
+  .market-cap-title {
+    margin: 0;
+  }
+  .hr-change,
+  .market-cap-title {
+    text-align: center;
+  }
+  .hr-change-title {
+    text-align: left;
+  }
 }
 .item div img {
   width: 35px;
 }
-.market-cap {
-  margin-left: auto;
+.green {
+  color: #37c295;
 }
-.current-price {
-  flex-basis: 5rem;
-}
-.hr-change {
-  margin: 0 auto;
+.red {
+  color: #ce454f;
 }

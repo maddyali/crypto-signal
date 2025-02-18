@@ -14,9 +14,8 @@
 .navbar li {
   cursor: pointer;
 }
-.navbar-right {
+.nav-right {
   display: flex;
-  align-items: center;
   gap: 1rem;
 }
 .navbar select {
