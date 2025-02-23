@@ -3,7 +3,7 @@
   text-align: center;
   padding: 1rem;
 }
-.coin-info img {
+.coin-name img {
   width: 100px;
 }
 .coin-desc {
@@ -14,4 +14,10 @@
   background-color: #131313;
   border-radius: 4px;
   padding: 1.2rem;
+}
+.coin-info ul {
+  list-style: none;
+  margin: 1rem;
+  font-size: large;
+  line-height: 1.5rem;
 }
