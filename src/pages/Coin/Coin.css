@@ -1,0 +1,17 @@
+.coin-container {
+  margin: auto;
+  text-align: center;
+  padding: 1rem;
+}
+.coin-info img {
+  width: 100px;
+}
+.coin-desc {
+  text-align: left;
+  font-size: large;
+  max-width: 50rem;
+  margin-top: 2rem;
+  background-color: #131313;
+  border-radius: 4px;
+  padding: 1.2rem;
+}
